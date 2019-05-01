@@ -45,3 +45,28 @@
     echo "<br>";
     echo is_palindrome("mad1am");
     echo "<hr>";
+    
+    /*Написать функцию для поверки номер платежной карты используя формулу Луна 
+    Функция должна возвращать булевое значение: true если номер правильный или false если нет.*/
+
+    function check_card_number(int $card_number){
+      $sum = 0;
+      $number_to_string = (string)$card_number;
+      $number_length = strlen($number_to_string);
+      if(($number_length % 2 == 0)){
+        while($i<$number_length){
+          ($i%2==0) ? $sum += $number_to_string[$i] * 2 % 9 : $sum += $number_to_string[$i];
+          $i++;
+        }
+      }else{
+        while($i<$number_length){
+          ($i%2==0) ? $sum += $number_to_string[$i] : $sum += $number_to_string[$i] * 2 % 9;
+          $i++;
+        } 
+      }
+      return ($sum % 10 == 0) ? 'true': 'false';
+      
+    }
+    echo check_card_number(4561261212345464); //false
+    echo "<br>";
+    echo check_card_number(4561261212345467); //true
