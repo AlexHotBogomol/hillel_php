@@ -64,8 +64,7 @@
           $i++;
         } 
       }
-      return ($sum % 10 == 0) ? 'true': 'false';
-      
+      return ($sum % 10 == 0);
     }
     echo check_card_number(4561261212345464); //false
     echo "<br>";
