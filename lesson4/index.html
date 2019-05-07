@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+</head>
+<body>
+	<h1>КАЛЬКУЛЯТОР</h1>
+	<form action="calculator.php" method="POST">
+		Выберите операцию:
+		<select name="action" required="required">
+			<option value="Addition">Addition</option>
+			<option value="Subtraction">Subtraction</option>
+			<option value="Multiplication">Multiplication</option>
+			<option value="Division">Division</option>
+		</select><br><br>
+		<label>Введите первое число <input type="number" name="num1" required="required"></label><br><br>
+		<label>Введите второе число <input type="number" name="num2" required="required"></label><br><br>
+		<input type="submit" name="submit" value="Calculate">
+	</form>
+	<hr>
+	<h1>ПЕРЕВОД ГРАДУСОВ</h1>
+	<form action="converter.php" method="POST">
+		Какой тип градусов вы хотите получить:
+		<select name="convert_type" required="required">
+			<option value="Celsius">Celsius</option>
+			<option value="Fahrenheit">Fahrenheit</option>
+		</select><br><br>
+		<label>Введите градусы <input type="number" name="degrees" required="required"></label><br><br>
+		<input type="submit" name="submit" value="Convert">
+	</form>
+</body>
+</html>
