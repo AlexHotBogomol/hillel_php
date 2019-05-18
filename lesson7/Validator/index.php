@@ -15,6 +15,10 @@
 			<input type="text" name="lastname" id="lastname">
 		</div>
 		<div class="form-group">
+			<label for="age">Введите свой возраст</label>
+			<input type="text" name="age" id="age">
+		</div>
+		<div class="form-group">
 			<label for="email">Введите email</label>
 			<input type="email" name="email" id="email">
 		</div>
