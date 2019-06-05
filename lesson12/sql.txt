@@ -1,0 +1,77 @@
+CREATE TABLE 'clients' (
+ 'id' INT NOT NULL AUTO_INCREMENT,
+ 'first_name' VARCHAR(45) NOT NULL,
+ 'last_name' VARCHAR(45) NOT NULL,
+ 'email' VARCHAR(45) NOT NULL,
+ 'company_name' VARCHAR(45) NOT NULL,
+ 'is_active' INT(11) NULL DEFAULT 0,
+ 'age' INT(11) NULL,
+ PRIMARY KEY ('id'));
+
+//Вставка нескольких клиентов в бд
+
+ INSERT INTO clients (first_name, last_name, email, company_name, is_active, age)
+ VALUES ('Sasha', 'Zakablukov', 'Zakablukov@gmail.com', '770capital', 1, 22),
+ ('Petya', 'Pyatochkin', 'Petya@i.ua', 'SuperFirma', 0, 30),
+ ('Masha', 'Shmotkina', 'Masha@yahoo.com', 'SuperFirma', 1, 25),
+ ('Marina', "Oskolkova", 'OskolcMar@gmail.com', 'ProstoSuperFirma', 1, 22)
+
+//Список всех клиентов
+
+ SELECT * FROM clients
+
+//Список клиентов который активны (поле is_active)
+
+  SELECT * FROM clients WHERE is_active=1
+
+//Список клиентов возраст которых больше или равно 30
+
+  SELECT * FROM clients WHERE age>=30
+
+//Список клиентов имя которых начинается на В (Вася, Владимир)
+
+  SELECT * FROM clients WHERE first_name LIKE 'В%'
+
+// Сколько клиентов у вас в базе всего
+ 
+  SELECT COUNT(id) FROM clients
+
+//Самого старого (по возрасту клиента)
+
+  SELECT MAX(age) FROM clients
+
+//Сколько у вас активных клиентов
+
+  SELECT COUNT(id) FROM clients WHERE is_active=1
+
+//Получить и отсортировать всех клиентов по возрасту
+
+  SELECT * FROM clients ORDER BY age ASC
+
+//Получить и отсортировать всех клиентов по имени
+ 
+  SELECT * FROM clients ORDER BY first_name ASC
+
+//Посчтить сколько у вас активных клиентов старше 25.
+  
+  SELECT COUNT(id) FROM clients WHERE is_active=1 AND age>25
+
+//Изменить возраст на 45 для клиента номер 2
+
+  UPDATE clients SET age=45 WHERE id=2
+
+//Изменит имя клиенту с номером 1
+ 
+  UPDATE clients SET first_name='Vova' WHERE id=1
+
+//Деактивировать клиента номер 3 (подсказка - см. поле is_active)
+
+  UPDATE clients SET is_active=0 WHERE id=3
+
+//Удалить всех не активных клиентов
+
+  DELETE FROM clients WHERE is_active=0
+
+//Удалить всех созданных вами клиентов
+
+  DELETE FROM clients
