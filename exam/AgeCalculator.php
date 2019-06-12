@@ -14,7 +14,8 @@
 	Аргумент метода может принимать как время в секундах, так и годах*/
 
 
-	class AgeCalculator {
+	class AgeCalculator 
+	{
 		const EARTH_DAYS = 365.25;
 		const EARTH_PERIOD = 1;
 		const MERC_PERIOD = 0.2408467;
@@ -24,35 +25,37 @@
 		const SATURN_PERIOD = 29.447498;
 		const URAN_PERIOD = 84.016846;
 		const NEPTUN_PERIOD = 164.79132;
-		static function calculate_age($seconds, $planet){
+		static function calculate_age(int $time, string $planet, bool $is_years = false) : float
+		{
+			if(!$is_years){
+				$time = $time/60/60/24/self::EARTH_DAYS;
+			}
 			switch ($planet) {
 				case 'Earth':
-					$years = $seconds/60/60/24/(self::EARTH_DAYS * self::EARTH_PERIOD) ;
+					$years = $time * self::EARTH_PERIOD ;
 					break;
 				case 'Merc':
-					$years = $seconds/60/60/24/(self::EARTH_DAYS * self::MERC_PERIOD) ;
+					$years = $time * self::MERC_PERIOD;
 					break;
 				case 'Venus':
-					$years = $seconds/60/60/24/(self::EARTH_DAYS * self::VENUS_PERIOD) ;
+					$years = $time * self::VENUS_PERIOD ;
 					break;
 				case 'Mars':
-					$years = $seconds/60/60/24/(self::EARTH_DAYS * self::MARS_PERIOD) ;
+					$years = $time * self::MARS_PERIOD ;
 					break;
 				case 'Upi':
-					$years = $seconds/60/60/24/(self::EARTH_DAYS * self::UPI_PERIOD) ;
+					$years = $time * self::UPI_PERIOD ;
 					break;
 				case 'Saturn':
-					$years = $seconds/60/60/24/(self::EARTH_DAYS * self::SATURN_PERIOD) ;
+					$years = $time * self::SATURN_PERIOD ;
 					break;
 				case 'Uran':
-					$years = $seconds/60/60/24/(self::EARTH_DAYS * self::URAN_PERIOD) ;
+					$years = $time * self::URAN_PERIOD ;
 					break;
 				case 'Neptun':
-					$years = $seconds/60/60/24/(self::EARTH_DAYS * self::NEPTUN_PERIOD) ;
+					$years = $time * self::NEPTUN_PERIOD ;
 					break;
 			}
 			return $years;
 		}
 	}
-
-	echo AgeCalculator::calculate_age(315360000, "Merc");

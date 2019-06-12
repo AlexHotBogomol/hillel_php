@@ -7,9 +7,11 @@
 	[‘у’] => 1,
 	[‘нас’] => 1 */
 
-	class StringCalculator{
-		const SEPARATORS = [",", ".", ";"];
-		static function calculateWords($string){
+	class StringCalculator
+	{
+		private const SEPARATORS = [",", ".", ";"];
+		static function calculateWords($string)
+		{
 			$string = mb_strtolower($string);
 			$words = explode(" ", $string);
 			$words = str_replace (self::SEPARATORS, "", $words);
@@ -24,5 +26,3 @@
 			return $result;
 		}	
 	}
-
-	var_dump(StringCalculator::calculateWords("Лето, наступило у нас лето"));

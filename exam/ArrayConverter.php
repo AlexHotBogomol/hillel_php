@@ -3,9 +3,10 @@
 	Пример: [1,[2,3,null,4],[null],5]
 	Результат: [1,2,3,4,5]*/
 
-	$array = [1,[2,3,null,4],[null],5];
-	class ArrayConverter {
-		static function convert_array($array){
+	class ArrayConverter 
+	{
+		static function convert_array($array)
+		{
 			$result = [];
 			foreach ($array as $value) {
 				if(is_array($value)){
@@ -21,4 +22,3 @@
 			return $result;
 		}
 	}
-	var_dump(ArrayConverter::convert_array($array));
